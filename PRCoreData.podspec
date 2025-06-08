@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                     DESC
   s.homepage     = 'https://github.com/huayiyu/PRCoreData'  # 项目主页（GitHub 链接）
   s.license      = { :type => 'MIT', :file => 'LICENSE' }  # 开源协议（通常 MIT）
-  s.author       = { 'Hao Hui' => 'your.email@example.com' }  # 作者信息
+  s.author       = { 'Hao Hui' => 'haohuihfit@outlook.com' }  # 作者信息
   
   # 代码来源（Git 仓库 + tag）
   s.source       = {
@@ -17,13 +17,13 @@ Pod::Spec.new do |s|
   }
   
   # 支持的平台和版本
-  s.ios.deployment_target = '11.0'  # 最低支持 iOS 12.0
+  s.ios.deployment_target = '12.0'  # 最低支持 iOS 12.0
   s.swift_version = '5.0'           # Swift 版本（如果是 Swift 项目）
   
   # 核心配置（选择一种方式）
   
   ## 方式1：直接包含源代码（推荐）
-  s.source_files = 'PRCoreData/**/*.{h,m,swift}'  # 源代码路径
+  s.source_files = 'PRCoreData.framework/**/*.{h,m,swift}'  # 源代码路径
   
   ## 方式2：使用预编译的 .framework（如果已经构建好二进制）
   # s.vendored_frameworks = 'PRCoreData.framework'
