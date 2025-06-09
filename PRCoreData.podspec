@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   
   # 代码来源（Git 仓库 + tag）
   s.source       = {
-    :git => 'git@github.com:huayiyu/PRCoreData.git', # git@github.com:huayiyu/PRCoreData.git https://github.com/huayiyu/PRCoreData.git
+    :git => 'https://github.com/huayiyu/PRCoreData.git', # git@github.com:huayiyu/PRCoreData.git https://github.com/huayiyu/PRCoreData.git
     :tag => s.version.to_s
   }
   
