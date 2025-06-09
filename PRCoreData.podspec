@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   # 基本信息
   s.name         = 'PRCoreData'       # 框架名称（必须和 .framework 文件名一致）
-  s.version      = '1.0.1'             # 版本号（每次发布新版本需更新）
+  s.version      = '1.0.01'             # 版本号（每次发布新版本需更新）
   s.summary      = 'Re encapsulated Objective C library based on CoreData.'  # 简短描述（显示在 CocoaPods 搜索列表）
   s.description  = <<-DESC
                       PRCoreData It is a powerful iOS Objective C CoreData wrapper library that makes CoreData more convenient to use and provides standardized APIs。
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   
   # 代码来源（Git 仓库 + tag）
   s.source       = {
-    :git => 'git@github.com:huayiyu/PRCoreData.git', # git@github.com:huayiyu/PRCoreData.git https://github.com/huayiyu/PRCoreData.git
+    :git => 'git@github.com:huayiyu/PRCoreData.git',
     :tag => s.version.to_s
   }
   
