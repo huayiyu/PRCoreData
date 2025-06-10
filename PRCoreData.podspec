@@ -19,7 +19,12 @@ Pod::Spec.new do |s|
   # 支持的平台和版本
   s.ios.deployment_target = '12.0'  # 最低支持 iOS 12.0
   s.swift_version = '5.0'           # Swift 版本（如果是 Swift 项目）
-  
+
+  # 确保包含必要的链接设置
+  s.pod_target_xcconfig = {
+    'OTHER_LDFLAGS' => '-ObjC',
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'  # 解决 M1 芯片模拟器问题
+  }
   # 核心配置（选择一种方式）
   
   ## 方式1：直接包含源代码（推荐）
@@ -29,7 +34,7 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation', 'CoreData'
   
   ## 方式2：使用预编译的 .framework（如果已经构建好二进制）
-  s.vendored_frameworks = 'PRCoreData.framework'
+  s.vendored_frameworks = 'PRCoreData.framework/RCoreData'
   
   # 依赖项（如果有）
   # s.dependency 'Alamofire', '~> 5.0'  # 例如依赖 Alamofire
