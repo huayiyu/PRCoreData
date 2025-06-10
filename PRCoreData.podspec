@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation', 'CoreData'
   
   ## 方式2：使用预编译的 .framework（如果已经构建好二进制）
-  s.vendored_frameworks = 'PRCoreData.framework/RCoreData'
+  #s.vendored_frameworks = 'PRCoreData.framework/RCoreData'
   
   # 依赖项（如果有）
   # s.dependency 'Alamofire', '~> 5.0'  # 例如依赖 Alamofire
