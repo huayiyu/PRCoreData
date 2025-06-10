@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   # 核心配置（选择一种方式）
   
   ## 方式1：直接包含源代码（推荐）
-  s.source_files = 'PRCoreData.framework/**/*'  # 源代码路径
+  s.source_files = 'PRCoreData.framework/**/*.{h,m}'  # 源代码路径
   
   s.public_header_files = 'PRCoreData.framework/**/*.h'
   s.frameworks = 'Foundation', 'CoreData'
