@@ -1,36 +1,34 @@
 Pod::Spec.new do |s|
-  # 基本信息
-  s.name         = 'PRCoreData'       # 框架名称（必须和 .framework 文件名一致）
-  s.version      = '1.0.13'             # 版本号（每次发布新版本需更新）
-  s.summary      = 'Re encapsulated Objective C library based on CoreData.'  # 简短描述（显示在 CocoaPods 搜索列表）
+  s.name         = 'PRCoreData'
+  s.version      = '1.0.14'
+  s.summary      = 'Re-encapsulated Objective-C library based on CoreData.'
   s.description  = <<-DESC
-                      PRCoreData It is a powerful iOS Objective C CoreData wrapper library that makes CoreData more convenient to use and provides standardized APIs。
-                    DESC
-  s.homepage     = 'https://github.com/huayiyu/PRCoreData'  # 项目主页（GitHub 链接）
-  s.license      = { :type => 'MIT', :file => 'LICENSE' }  # 开源协议（通常 MIT）
-  s.author       = { 'Hao Hui' => 'haohuihfit@outlook.com' }  # 作者信息
+    PRCoreData is a powerful iOS Objective-C CoreData wrapper library.
+  DESC
+  s.homepage     = 'https://github.com/huayiyu/PRCoreData'
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
+  s.author       = { 'Hao Hui' => 'haohuihfit@outlook.com' }
   
-  # 代码来源（Git 仓库 + tag）
+  # 1. 指定预编译框架和资源文件
   s.source       = {
-    :git => 'github.com:huayiyu/PRCoreData.git', # git@github.com:huayiyu/PRCoreData.git https://github.com/huayiyu/PRCoreData.git
+    :git => 'https://github.com/huayiyu/PRCoreData.git',
     :tag => s.version.to_s
   }
+  s.ios.deployment_target = '12.0'
   
-  # 支持的平台和版本
-  s.ios.deployment_target = '12.0'  # 最低支持 iOS 12.0
-  s.swift_version = '5.0'           # Swift 版本（如果是 Swift 项目）
+  # 2. 声明预编译框架（确保路径正确）
+  s.vendored_frameworks = 'PRCoreData.framework'
   
-  # 核心配置（选择一种方式）
+  # 3. 处理 Core Data 模型文件（关键！）
+  # 方式一：如果模型文件已编译到框架中，无需额外声明
+  # 方式二：如果模型文件需单独分发
+  s.resources = 'PRCoreData.framework/PRCoreData.xcdatamodeld'  # 替换为实际路径
   
-  ## 方式1：直接包含源代码（推荐）
-  #s.source_files = 'PRCoreData.framework/**/*.{h,m,swift}'  # 源代码路径
+  # 4. 添加必要的链接和编译设置
+  s.pod_target_xcconfig = {
+    'OTHER_LDFLAGS' => '-ObjC',  # 确保加载所有 Objective-C 符号
+    'COREDATA_ENABLE_MODELS' => 'YES'  # 启用 Core Data 模型支持
+  }
   
-  ## 方式2：使用预编译的 .framework（如果已经构建好二进制）
-  s.vendored_frameworks = 'PRCoreData.framework' # 指向预编译框架
-  s.preserve_paths = 'PRCoreData.framework'
-  # 数据模型资源
-  s.resources = 'PRCoreData.xcdatamodeld' # Core Data模型文件
-
-  # 依赖项（如果有）
-  # s.dependency 'Alamofire', '~> 5.0'  # 例如依赖 Alamofire
-end
+  # 5. 如果框架依赖其他库（如系统库）
+  s.frameworks = 'CoreData'
