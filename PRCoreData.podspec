@@ -31,5 +31,5 @@ Pod::Spec.new do |s|
   }
   
   # 5. 如果框架依赖其他库（如系统库）
-  s.frameworks = 'CoreData'
+  #s.frameworks = 'CoreData'
 end
