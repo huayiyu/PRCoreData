@@ -1,6 +1,0 @@
-framework module PRCoreData {
-  umbrella header "PRCoreData.h"
-  export *
-
-  module * { export * }
-}
