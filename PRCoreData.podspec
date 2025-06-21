@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/huayiyu/PRCoreData'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'Hao Hui' => 'haohuihfit@outlook.com' }
-  
+  s.static_framework = true
   # 关键修复1: 确保source指向正确的Git仓库
   s.source       = {
     :git => 'https://github.com/huayiyu/PRCoreData.git',
