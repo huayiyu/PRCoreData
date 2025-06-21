@@ -37,12 +37,6 @@ Pod::Spec.new do |s|
   # 关键修复5: 添加source_files声明
   s.source_files = 'PRCoreData.framework/Headers/*.h'
   
-  # 关键修复6: 添加必要的系统框架依赖
-  s.frameworks = 'CoreData'
-  
-  # 即使主要是Objective-C，也建议添加Swift版本声明
-  s.swift_version = '5.0'
-  
   # 可选: 如果框架包含模块映射文件
   # s.module_map = 'PRCoreData.framework/Modules/module.modulemap'
 end
