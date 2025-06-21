@@ -45,6 +45,10 @@
 	<dict>
 		<key>Headers/PRCoreData.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			CU73vRzUaaso+OeYQY4UR2sKBn0=
+			</data>
 			<key>hash2</key>
 			<data>
 			dk7tD67klFKpSt1VuXp0FYBJPhufos8z5hVOuZarY6o=
@@ -52,6 +56,10 @@
 		</dict>
 		<key>Headers/PRCoreDataManager.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			kS5pbpnBDYEda048xqAGksUehB4=
+			</data>
 			<key>hash2</key>
 			<data>
 			4GYrl4Mu6fgU1Zc0sSo3gY9rT5wJU0Yl/X1I7VMZLJ8=
@@ -59,6 +67,10 @@
 		</dict>
 		<key>Headers/PRCustomModel.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			uExMgFFTFS5htBYL2FW1R2dVQnU=
+			</data>
 			<key>hash2</key>
 			<data>
 			ol0Hoja4qkE2RAVVC88YaDdU+CEqpvlriHm2OFjQ07M=
@@ -66,6 +78,10 @@
 		</dict>
 		<key>Headers/PRGenericTransformer.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			6M3rwscUNfQEKvtEXP+jeo9sy/E=
+			</data>
 			<key>hash2</key>
 			<data>
 			V+ppYbDzrcYTp82zzW8hV2X6drY4/xovB2Xpk4Z4fHI=
@@ -73,6 +89,10 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			94Ax9VA91pI9OCVBfjNEnt+8k34=
+			</data>
 			<key>hash2</key>
 			<data>
 			Jcih/PwVgl17zNAMxmHTUbR92X7FbxlPu3f0Ier8Des=
@@ -80,6 +100,10 @@
 		</dict>
 		<key>PRCoreData.momd/PRCoreData.mom</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			nmoY4Q7GSrABnExW7xc6QjkK8lo=
+			</data>
 			<key>hash2</key>
 			<data>
 			VmWq3SUXVBJSapkIBJzjCvGlP3Esewxns1X9Jrm5Txw=
@@ -87,6 +111,10 @@
 		</dict>
 		<key>PRCoreData.momd/PRCoreData.omo</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			wT7InjyOWVzDaazyr/RtgAcXzQ0=
+			</data>
 			<key>hash2</key>
 			<data>
 			fZZZg+/XIcJH5uspp/r4QCaH27kMHMgk1w6FkMcikb8=
@@ -94,6 +122,10 @@
 		</dict>
 		<key>PRCoreData.momd/VersionInfo.plist</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			CI+ojnsu2ZvwZady1D+o17yiZGw=
+			</data>
 			<key>hash2</key>
 			<data>
 			4oOzlwdWOpbHPCTiW/ObcsZuXvlb1z1pveOVoH9uTrA=
