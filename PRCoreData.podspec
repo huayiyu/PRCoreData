@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.static_framework = true
   # 关键修复1: 确保source指向正确的Git仓库
   s.source       = {
-    :git => 'git@github.com:huayiyu/PRCoreData.git',
+    :git => 'https://github.com/huayiyu/PRCoreData.git',
     :tag => s.version.to_s
   }
   
