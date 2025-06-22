@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'PRCoreData'
-  s.version      = '1.0.15'
+  s.version      = '1.0.16'
   s.summary      = 'Re-encapsulated Objective-C library based on CoreData.'
   s.description  = <<-DESC
     PRCoreData is a powerful iOS Objective-C CoreData wrapper library.
