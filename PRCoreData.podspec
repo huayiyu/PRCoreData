@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'PRCoreData'
-  s.version      = '1.0.17'
+  s.version      = '1.0.18'
   s.summary      = 'Re-encapsulated Objective-C library based on CoreData.'
   s.description  = <<-DESC
     PRCoreData is a powerful iOS Objective-C CoreData wrapper library.
@@ -16,6 +16,15 @@ Pod::Spec.new do |s|
   
   s.ios.deployment_target = '12.0'
   
+  # 关键修复1：明确排除资源编译
+  s.resource = nil
+  s.resources = nil
+  s.resource_bundles = nil
+
+  # 关键修复2：禁用Swift模块（如果是纯OC）
+  s.module_map = nil
+  s.swift_version = nil
+  s.exclude_files = '**/*.xcdatamodeld' # 显式排除源文件
   # 关键修复1：明确声明为静态框架
   s.static_framework = true
   
@@ -23,9 +32,10 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'PRCoreData.framework'
   
   # 关键修复3：添加必要的链接器标志
+  # 关键修复4：添加CoreData链接标志
   s.xcconfig = {
-    'OTHER_LDFLAGS' => '-ObjC -all_load -lz -lsqlite3',
-    'VALID_ARCHS' => 'arm64 arm64e x86_64'
+    'OTHER_LDFLAGS' => '-ObjC -lz -lsqlite3',
+    'FRAMEWORK_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/PRCoreData"'
   }
   
   # 关键修复4：添加系统框架依赖
