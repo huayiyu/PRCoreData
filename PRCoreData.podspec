@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   
   # 关键修复3：添加必要的链接器标志
   s.xcconfig = {
-    'OTHER_LDFLAGS' => '-ObjC -all_load -lz',
+    'OTHER_LDFLAGS' => '-ObjC -all_load -lz -lsqlite3',
     'VALID_ARCHS' => 'arm64 arm64e x86_64'
   }
   
