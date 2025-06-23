@@ -40,4 +40,6 @@ Pod::Spec.new do |s|
   
   # 可选：如果使用C++特性
   # s.library = 'c++'
+  # 关键修复5：确保不包含 Swift 模块映射
+  s.module_map = nil
 end
