@@ -8,8 +8,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/huayiyu/PRCoreData'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { 'Hao Hui' => 'haohuihfit@outlook.com' }
-  s.static_framework = true
-  # 关键修复1: 确保source指向正确的Git仓库
+  
   s.source       = {
     :git => 'https://github.com/huayiyu/PRCoreData.git',
     :tag => s.version.to_s
@@ -17,26 +16,28 @@ Pod::Spec.new do |s|
   
   s.ios.deployment_target = '12.0'
   
-  # 关键修复2: 正确指定预编译框架路径
+  # 关键修复1：明确声明为静态框架
+  s.static_framework = true
+  
+  # 关键修复2：正确指定预编译框架
   s.vendored_frameworks = 'PRCoreData.framework'
   
-  # 关键修复3: 移除或修正resources声明
-  # 如果确实没有资源文件，完全移除这行
-  # 如果有资源文件，确保路径正确
-  # s.resources = 'PRCoreData.framework/*.momd'
+  # 关键修复3：添加必要的链接器标志
+  s.xcconfig = {
+    'OTHER_LDFLAGS' => '-ObjC -all_load -lz',
+    'VALID_ARCHS' => 'arm64 arm64e x86_64'
+  }
   
-# 关键修复点3: 正确处理Core Data模型文件
-  # 如果模型文件已编译到框架中，可以注释掉这行
-  # 如果模型文件需要单独分发，确保路径正确
-  s.resources = 'PRCoreData.framework/PRCoreData.xcdatamodeld'
-
-  # 关键修复4: 修正头文件路径
-  # 使用相对于框架的路径
+  # 关键修复4：添加系统框架依赖
+  s.frameworks = 'CoreData'
+  
+  # 关键修复5：正确设置头文件
   s.public_header_files = 'PRCoreData.framework/Headers/*.h'
-  
-  # 关键修复5: 添加source_files声明
   s.source_files = 'PRCoreData.framework/Headers/*.h'
   
-  # 可选: 如果框架包含模块映射文件
-  # s.module_map = 'PRCoreData.framework/Modules/module.modulemap'
+  # 关键修复6：如果是纯Objective-C，移除Swift版本声明
+  # 完全移除这行：s.swift_version = '5.0'
+  
+  # 可选：如果使用C++特性
+  # s.library = 'c++'
 end
