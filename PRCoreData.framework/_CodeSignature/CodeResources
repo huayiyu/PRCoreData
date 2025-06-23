@@ -28,10 +28,6 @@
 		<data>
 		RfVoVXo4cfn446iefYFj2o2V5z8=
 		</data>
-		<key>Modules/module.modulemap</key>
-		<data>
-		94Ax9VA91pI9OCVBfjNEnt+8k34=
-		</data>
 		<key>PRCoreData.momd/PRCoreData.mom</key>
 		<data>
 		nmoY4Q7GSrABnExW7xc6QjkK8lo=
@@ -89,17 +85,6 @@
 			<key>hash2</key>
 			<data>
 			V+ppYbDzrcYTp82zzW8hV2X6drY4/xovB2Xpk4Z4fHI=
-			</data>
-		</dict>
-		<key>Modules/module.modulemap</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			94Ax9VA91pI9OCVBfjNEnt+8k34=
-			</data>
-			<key>hash2</key>
-			<data>
-			Jcih/PwVgl17zNAMxmHTUbR92X7FbxlPu3f0Ier8Des=
 			</data>
 		</dict>
 		<key>PRCoreData.momd/PRCoreData.mom</key>
