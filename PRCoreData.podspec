@@ -15,44 +15,36 @@ Pod::Spec.new do |s|
   }
   
   s.ios.deployment_target = '12.0'
-  
-  # 关键修复1：明确排除资源编译
-  s.resource = nil
-  s.resources = nil
-  s.resource_bundles = nil
 
-  # 关键修复2：禁用Swift模块（如果是纯OC）
-  s.module_map = nil
-  s.swift_version = nil
-  s.exclude_files = '**/*.xcdatamodeld' # 显式排除源文件
-
-  # 关键修复1：明确声明为静态框架
-  s.static_framework = true
-  
-  # 关键修复2：正确指定预编译框架
+  # █ 核心配置（严格匹配图片中的文件结构）
   s.vendored_frameworks = 'PRCoreData.framework'
   s.preserve_paths = 'PRCoreData.framework'
-
-  # 关键修复3：添加必要的链接器标志
-  # 关键修复4：添加CoreData链接标志
-  s.xcconfig = {
-    'OTHER_LDFLAGS' => '-ObjC -all_load -lz -lsqlite3',
-    'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/PRCoreData"',
-    'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/PRCoreData"'
-  }
   
-  # 关键修复4：添加系统框架依赖
-  s.frameworks = 'CoreData'
-  
-  # 关键修复5：正确设置头文件
+  # █ 头文件配置（匹配图片中的Headers目录）
   s.public_header_files = 'PRCoreData.framework/Headers/*.h'
   s.source_files = 'PRCoreData.framework/Headers/*.h'
+
+  # █ 签名与架构配置（解决验证错误）
+  s.pod_target_xcconfig = {
+    'DEFINES_MODULE' => 'NO', # 禁用模块化
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64', # 排除模拟器arm64
+    'CODE_SIGNING_REQUIRED' => 'NO', # 禁用代码签名
+    'VALID_ARCHS' => 'arm64 armv7' # 仅真机架构
+  }
+
+  # █ 资源文件配置（匹配图片中的PRCoreData.momd）
+  s.resources = 'PRCoreData.framework/PRCoreData.momd'
   
-  # 关键修复6：如果是纯Objective-C，移除Swift版本声明
-  # 完全移除这行：s.swift_version = '5.0'
+  # █ 系统依赖（必须）
+  s.frameworks = 'CoreData', 'Foundation'
+  #s.libraries = 'z', 'sqlite3'
   
-  # 可选：如果使用C++特性
-  # s.library = 'c++'
-  # 关键修复5：确保不包含 Swift 模块映射
+  # █ 彻底禁用Swift干扰
+  s.swift_version = nil
   s.module_map = nil
+  
+  # █ 签名豁免（关键修复）
+  s.user_target_xcconfig = {
+    'CODE_SIGNING_ALLOWED' => 'NO'
+  }
 end
