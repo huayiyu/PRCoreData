@@ -25,17 +25,20 @@ Pod::Spec.new do |s|
   s.module_map = nil
   s.swift_version = nil
   s.exclude_files = '**/*.xcdatamodeld' # 显式排除源文件
+
   # 关键修复1：明确声明为静态框架
   s.static_framework = true
   
   # 关键修复2：正确指定预编译框架
   s.vendored_frameworks = 'PRCoreData.framework'
-  
+  s.preserve_paths = 'PRCoreData.framework'
+
   # 关键修复3：添加必要的链接器标志
   # 关键修复4：添加CoreData链接标志
   s.xcconfig = {
-    'OTHER_LDFLAGS' => '-ObjC -lz -lsqlite3',
-    'FRAMEWORK_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/PRCoreData"'
+    'OTHER_LDFLAGS' => '-ObjC -all_load -lz -lsqlite3',
+    'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/PRCoreData"',
+    'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/PRCoreData"'
   }
   
   # 关键修复4：添加系统框架依赖
